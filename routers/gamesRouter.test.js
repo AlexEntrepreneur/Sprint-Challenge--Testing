@@ -59,4 +59,25 @@ describe('Games Router', () => {
         });
     });
   });
+
+  describe('[GET] /games/:id Endpoint', () => {
+    it('should respond with status code of 200', () => {
+      return request(gamesRouter)
+        .get('/games/1')
+        .expect(200);
+    });
+
+    it('should respond with an object on successful GET', () => {
+      return request(gamesRouter)
+        .get('/games/1')
+        .expect(200)
+        .expect(/\{.+\}/g);
+    });
+
+    it('should respond with 404 if id doesn\'t exist', () => {
+      return request(gamesRouter)
+        .get('/games/10000')
+        .expect(404);
+    });
+  });
 });
