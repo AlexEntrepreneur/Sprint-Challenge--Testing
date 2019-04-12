@@ -34,4 +34,18 @@ router.post('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+
+  const singleGame = gamesData.filter(game => game.id === Number(id))[0];
+
+  if (singleGame) {
+    res.json(singleGame);
+  }
+
+  res.status(404).json({
+    message: `Game of id ${id} not found`
+  });
+});
+
 module.exports = router;
