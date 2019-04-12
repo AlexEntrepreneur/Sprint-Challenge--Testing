@@ -48,7 +48,7 @@ describe('Games Router', () => {
 
       function responseContainsNewGame(res) {
         const bodyAsString = JSON.stringify(res.body);
-        return bodyAsString.includes(newGame.name);
+        return bodyAsString.includes(newGame.title);
       }
 
       return request(gamesRouter)
