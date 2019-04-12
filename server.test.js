@@ -2,7 +2,7 @@ const request = require('supertest');
 const serverRoot = require('./server');
 
 describe('Server', () => {
-  describe('GET / Endpoint', () => {
+  describe('[GET] / Endpoint', () => {
     it('should be running in "testing" environment', () => {
       expect(process.env.DB_ENV).toBe('testing');
     });
